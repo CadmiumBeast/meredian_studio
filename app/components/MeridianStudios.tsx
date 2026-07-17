@@ -155,7 +155,7 @@ function useScrolled(threshold = 40) {
 }
 
 function Corner({ pos = "tl", size = 22, color = COLORS.gold }) {
-  const s = {
+  const s: React.CSSProperties = {
     position: "absolute",
     width: size,
     height: size,
@@ -929,7 +929,7 @@ export default function MeridianStudios() {
         />
         <div style={{ maxWidth: 860, margin: "0 auto", textAlign: "center", position: "relative" }}>
           <Eyebrow color={COLORS.amber}>
-            <span style={{ margin: "0 auto" }}>Let's shoot something</span>
+            <span style={{ margin: "0 auto" }}>Lets shoot something</span>
           </Eyebrow>
           <h2
             style={{
