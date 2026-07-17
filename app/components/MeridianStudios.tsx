@@ -169,7 +169,7 @@ function Corner({ pos = "tl", size = 22, color = COLORS.gold }) {
   return <div style={s} />;
 }
 
-function Frame({ children, style = {}, cornerSize = 20 }) {
+function Frame({ children, style = {}, cornerSize = 20 }: { children?: React.ReactNode; style?: React.CSSProperties; cornerSize?: number }) {
   return (
     <div style={{ position: "relative", ...style }}>
       <Corner pos="tl" size={cornerSize} />
@@ -181,7 +181,7 @@ function Frame({ children, style = {}, cornerSize = 20 }) {
   );
 }
 
-function Eyebrow({ children, color = COLORS.gold }) {
+function Eyebrow({ children, color = COLORS.gold }: { children?: React.ReactNode; color?: string }) {
   return (
     <div
       style={{
@@ -207,7 +207,7 @@ function Eyebrow({ children, color = COLORS.gold }) {
 const PLATE_TEXT = "#F4EEE1";
 const PLATE_TEXT_DIM = "#C9BBA0";
 
-function ProjectCard({ p }) {
+function ProjectCard({ p }: { p: { index: string; name: string; category: string; desc: string; icon: any; grad: string; reading: string } }) {
   const [hover, setHover] = useState(false);
   const Icon = p.icon;
   return (
