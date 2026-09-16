@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect,  useState } from "react";
+import Image from "next/image";
 import {
   Camera,
   Film,
@@ -20,6 +21,7 @@ import {
   Car,
   Clock,
 } from "lucide-react";
+import heroImage from "../image/meradian_hero.jpg";
 
 /* ---------------------------------------------------------
    MERIDIAN STUDIOS — brand site
@@ -159,13 +161,12 @@ function Corner({ pos = "tl", size = 22, color = COLORS.gold }) {
     position: "absolute",
     width: size,
     height: size,
-    borderColor: color,
     opacity: 0.85,
   };
-  if (pos === "tl") Object.assign(s, { top: 0, left: 0, borderTop: "1px solid", borderLeft: "1px solid" });
-  if (pos === "tr") Object.assign(s, { top: 0, right: 0, borderTop: "1px solid", borderRight: "1px solid" });
-  if (pos === "bl") Object.assign(s, { bottom: 0, left: 0, borderBottom: "1px solid", borderLeft: "1px solid" });
-  if (pos === "br") Object.assign(s, { bottom: 0, right: 0, borderBottom: "1px solid", borderRight: "1px solid" });
+  if (pos === "tl") Object.assign(s, { top: 0, left: 0, borderTop: `1px solid ${color}`, borderLeft: `1px solid ${color}` });
+  if (pos === "tr") Object.assign(s, { top: 0, right: 0, borderTop: `1px solid ${color}`, borderRight: `1px solid ${color}` });
+  if (pos === "bl") Object.assign(s, { bottom: 0, left: 0, borderBottom: `1px solid ${color}`, borderLeft: `1px solid ${color}` });
+  if (pos === "br") Object.assign(s, { bottom: 0, right: 0, borderBottom: `1px solid ${color}`, borderRight: `1px solid ${color}` });
   return <div style={s} />;
 }
 
@@ -505,7 +506,7 @@ export default function MeridianStudios() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-            <div
+            {/* <div
               style={{
                 flexShrink: 0,
                 width: 34,
@@ -520,7 +521,7 @@ export default function MeridianStudios() {
               }}
             >
               M
-            </div>
+            </div> */}
             <span
               style={{
                 fontFamily: FONTS.display,
@@ -687,8 +688,6 @@ export default function MeridianStudios() {
             <Frame cornerSize={26} style={{ padding: 4 }}>
               <div
                 style={{
-                  background:
-                    "linear-gradient(160deg, #EDE2C8 0%, #F4EDDC 55%, #E8DBBB 100%)",
                   aspectRatio: "4 / 5",
                   display: "flex",
                   alignItems: "center",
@@ -697,7 +696,14 @@ export default function MeridianStudios() {
                   overflow: "hidden",
                 }}
               >
-                <Camera size={64} color={COLORS.gold} strokeWidth={0.8} style={{ opacity: 0.5 }} />
+                <Image
+                  src={heroImage}
+                  alt="Meridian Studios filming a client project"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 40vw"
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
                 <div
                   style={{
                     position: "absolute",
@@ -986,7 +992,7 @@ export default function MeridianStudios() {
               gap: 6,
             }}
           >
-            <MapPin size={13} color={COLORS.gold} /> SRI LANKA · © 2026
+            <MapPin size={13} color={COLORS.gold} /> SRI LANKA · © 2019
           </span>
         </div>
       </footer>
