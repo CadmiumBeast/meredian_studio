@@ -466,8 +466,34 @@ export default function MeridianStudios() {
 
         .ms-hero-section { min-height: 100vh; }
         @media (max-width: 760px) {
-          .ms-hero-section { min-height: auto; padding-bottom: 0 !important; }
+          .ms-hero-section {
+            min-height: auto;
+            padding-top: 104px !important;
+            padding-bottom: 0 !important;
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .ms-hero-section > div:not(.ms-hero-marquee) { min-width: 0; width: 100%; }
+          .ms-hero-media { width: min(100%, 460px); margin: 0 auto; }
+          .ms-hero-image-caption { font-size: 9px !important; gap: 12px; }
           .ms-hero-marquee { position: static !important; margin-top: 44px; }
+        }
+
+        @media (max-width: 480px) {
+          .ms-hero-section { padding-top: 92px !important; }
+          .ms-hero-section h1 { font-size: clamp(36px, 12vw, 56px) !important; }
+          .ms-hero-section p { font-size: 15px !important; }
+          .ms-hero-media { width: 100%; }
+          .ms-hero-image-caption { left: 14px !important; right: 14px !important; bottom: 14px !important; }
+          .ms-btn { max-width: 100%; }
+          .ms-work-grid { gap: 12px !important; }
+          .ms-work-grid > * { min-width: 0; }
+          footer span { max-width: 100%; }
+        }
+
+        @media (max-width: 360px) {
+          .ms-hero-image-caption { font-size: 8px !important; letter-spacing: 0.06em !important; }
+          .ms-btn { width: 100%; justify-content: center; }
         }
 
         a:focus-visible, button:focus-visible {
@@ -684,7 +710,7 @@ export default function MeridianStudios() {
             </div>
           </div>
 
-          <div className="ms-fade ms-fade-d2" style={{ position: "relative" }}>
+          <div className="ms-fade ms-fade-d2 ms-hero-media" style={{ position: "relative" }}>
             <Frame cornerSize={26} style={{ padding: 4 }}>
               <div
                 style={{
@@ -705,6 +731,7 @@ export default function MeridianStudios() {
                   priority
                 />
                 <div
+                  className="ms-hero-image-caption"
                   style={{
                     position: "absolute",
                     bottom: 22,
